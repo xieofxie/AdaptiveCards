@@ -1,0 +1,99 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "speak": "Search Bing for more information on Who is Danny DeVito?",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "2",
+          "items": [
+            {
+              "type": "TextBlock",
+              "size": "small",
+              "isSubtle": true,
+              "text": "AMERICAN ACTOR"
+            },
+            {
+              "type": "TextBlock",
+              "size": "large",
+              "weight": "bolder",
+              "text": "Danny DeVito",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "none",
+              "separation": "none",
+              "textStyle": "display"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Nov 17, 1944 · Neptune, NJ",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "5' 0\"",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Spouse: Rhea Perlman (m. 1982 - 2012)",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Children: Lucy DeVito (Daughter) · Jake DeVito (Son) · Gracie DeVito (Daughter)",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Siblings: Fran Devito (Sister)",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Oratory Preparatory School · American Academy of Dramatic Arts · New York's American Academy of Dramatic Arts · Our Lady of Mount Carmel",
+              "wrap": true,
+              "maxLines": 2,
+              "spacing": "small"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "1",
+          "backgroundImage": {
+            "url": "https://www.bing.com/th?id=AMMS_9553513f1bbdd4620865bbddd8df26ee",
+            "horizontalAlignment": "center"
+          },
+          "items": [],
+          "spacing": "padding"
+        }
+      ],
+      "selectAction": {
+        "type": "Action.OpenUrl",
+        "url": "https://www.bing.com/entityexplore?q=Danny+DeVito&filters=sid:%221ce6014f-2c5f-81c6-d9f2-dc8013b9afc0%22&elv=AXXfrEiqqD9r3GuelwApuloxJlVY8EpdonL9PSavdafA2mbEkZHL27v3NiILYQBvNoPHjbYq5lE1QIqwY47IRUUQ6CX1DQ9*YwlIG9couTQX",
+        "title": "Open In Bing for more information on Who is Danny DeVito?"
+      },
+      "height": "stretch"
+    }
+  ],
+  "-ms-attribution": {
+    "text": "Bing",
+    "icon": "https://www.bing.com/rs/n/2W/ic/ef0cff20/d50405d4.png"
+  },
+  "-ms-source": "Bing",
+  "-ms-height": "fixed"
+}

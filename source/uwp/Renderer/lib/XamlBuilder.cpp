@@ -76,6 +76,10 @@ namespace AdaptiveNamespace
             ComPtr<IAdaptiveRenderArgs> renderArgs;
             RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRenderArgs>(&renderArgs, containerStyle, nullptr, nullptr));
 
+            ComPtr<IAdaptiveActionElement> selectAction;
+            RETURN_IF_FAILED(adaptiveCard->get_SelectAction(&selectAction));
+            RETURN_IF_FAILED(renderArgs->put_IsInSelectAction(selectAction != nullptr));
+
             ComPtr<IPanel> bodyElementContainer;
             ComPtr<IUIElement> rootElement;
             RETURN_IF_FAILED(
@@ -89,9 +93,6 @@ namespace AdaptiveNamespace
             {
                 RETURN_IF_FAILED(rootAsFrameworkElement->put_MinHeight(cardMinHeight));
             }
-
-            ComPtr<IAdaptiveActionElement> selectAction;
-            RETURN_IF_FAILED(adaptiveCard->get_SelectAction(&selectAction));
 
             // Create a new IUIElement pointer to house the root element decorated with select action
             ComPtr<IUIElement> rootSelectActionElement;
@@ -274,10 +275,13 @@ namespace AdaptiveNamespace
 
         // Now create the inner stack panel to serve as the root host for all the
         // body elements and apply padding from host configuration
-        ComPtr<WholeItemsPanel> bodyElementHost;
-        RETURN_IF_FAILED(MakeAndInitialize<WholeItemsPanel>(&bodyElementHost));
-        bodyElementHost->SetMainPanel(TRUE);
-        bodyElementHost->SetAdaptiveHeight(TRUE);
+        //ComPtr<WholeItemsPanel> bodyElementHost;
+        //RETURN_IF_FAILED(MakeAndInitialize<WholeItemsPanel>(&bodyElementHost));
+        //bodyElementHost->SetMainPanel(TRUE);
+        //bodyElementHost->SetAdaptiveHeight(TRUE);
+
+        ComPtr<IStackPanel> bodyElementHost =
+            XamlHelpers::CreateXamlClass<IStackPanel>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_StackPanel));
 
         ComPtr<IFrameworkElement> bodyElementHostAsElement;
         RETURN_IF_FAILED(bodyElementHost.As(&bodyElementHostAsElement));

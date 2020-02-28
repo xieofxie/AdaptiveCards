@@ -66,6 +66,18 @@ namespace AdaptiveNamespace
         return S_OK;
     }
 
+    IFACEMETHODIMP AdaptiveRenderArgs::get_IsInSelectAction(boolean* isInSelectAction)
+    {
+        *isInSelectAction = m_isInSelectAction;
+        return S_OK;
+    }
+
+    IFACEMETHODIMP AdaptiveRenderArgs::put_IsInSelectAction(boolean isInSelectAction)
+    {
+        m_isInSelectAction = isInSelectAction;
+        return S_OK;
+    }
+
     HRESULT AdaptiveRenderArgs::get_AllowAboveTitleIconPlacement(_Out_ boolean* value)
     {
         *value = m_allowAboveTitleIconPlacement;

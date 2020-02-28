@@ -1,0 +1,178 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.2",
+  "fallbackText": "Which visual studio would you want to open?",
+  "speak": "Which visual studio would you want to open?",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "Container",
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "width": "30px",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "url": "data:image/png;base64,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",
+                      "altText": "Visual Studio Code app icon",
+                      "width": "30px",
+                      "spacing": "none"
+                    }
+                  ],
+                  "verticalContentAlignment": "center"
+                },
+                {
+                  "type": "Column",
+                  "width": "6px",
+                  "items": []
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "size": "medium",
+                      "text": "Visual Studio Code",
+                      "wrap": true
+                    }
+                  ],
+                  "verticalContentAlignment": "center",
+                  "height": "stretch"
+                }
+              ],
+              "verticalContentAlignment": "center",
+              "selectAction": {
+                "type": "Action.Submit",
+                "data": {
+                  "position_ref": 1
+                },
+                "title": "Open Visual Studio Code"
+              },
+              "minHeight": "40px",
+              "spacing": "small",
+              "height": "stretch"
+            }
+          ],
+          "verticalContentAlignment": "center",
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "width": "30px",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOzSURBVGhD1ZpbiE1RGMdnXDMPInlRFHJJLtMgyrwMuU/KNVE8EMUDRREeEUWRGWV4MeGJURoMQg2eSJIUR+PBEMk1jdz9/vsyrbNn73OZfTnn/OvXt9d39jnn+5+11t5rnXPKy4pM+9fee0o4Do27Ts/4aiUzqBgN/HMOv8EZqMfIEyvjo2I2YKoV1CtNmPllZRyVigFXb6EBTmKkXYlSM+DqD1yCuh5Ws/TUExbDzVI10KnYhhBDYRrhAlyEOsbsM+WzKcch1KlYDDjFX4f+VsLWDTgGlzHz18r4KF8DkQ8hCphJuAVm8dJs0MRLcc42KxOBIjXgFN8MFVbCXyPgkH0YXpEZMIrvZyUSkq8Bisn0CXZRoYqX0gxQyDpo4fALsQ762o8Eq5DFS94eOAVzoRdshjsUOJzoKx6bRchUfODVJiplmwNT4SGF6q6XJnKLCFfBr3hdCvfBOasVo4IMfAL30xsATRR8BPoo4RR/Hnqr7dF7mMe1fg9Ra5ZYFWTgMawBcwhsgVaK30AMKv4uVFK8bmKJKHAIUcRZgteE7rAnwK/4g1DD897YzWSUcQ4EmPDqAyzg3J3w204lp2yT2DWh3ZCfNFlrOUeTuSDKaoAxv5qwyW51kRaDzZwz324mr4wGnOIbIdN5g+AK5x4A3T8SVWBhAcXfh42QtrF2tANu87whdjMZBRmYCN7ij0I1412b6mXgZ6IaHmFijt2MX0EGBoL72GdYQuFb4acSRK3rg0wMhhZM7CVq7xqrggy4egBVFKxtYZocEwvhu5VIlyb3blhltWKU18B6uAa6nteDhsxLoq94TNvEWvAzIWX7gELLd09M91dQXIfTzCrOz3tJzesHvXf4PXE+xUucrz1wpp6ITZF1caFMRDpGczTRBtvtw/CKfJI5JmrA+92+Jrz2EaM457CViUCxfLElMRlL95s5VxRTTuF5FZT3VYgnaDEWi/Itvjsqx4AWX7qOV4KWAS/guUOKIvRTT2IKNYQcM0tBS4DpyqHXkALXlEsb5vzWQqEUyoApXmgYYbmDJqRX+sZBywxNTq/B9u4On8gMmDLMrIQpymWR7gOuqTSDGNMeOlCxGDDFG4wkuD1TpVye+gimKfdY860jdgOmDDPqmUnKhdQrGGof5qZQBkxhZixBZlbAeOWSUGQGTBlm1DPjlItYnT+zxmLAFGYmENQrMjRGuRB6B9qTNzBfkv+h2zAjRiuXo4rvrwaYmUxQrwj9buZV6fzZw2PmB+T4d5uysv99E185S3d5SQAAAABJRU5ErkJggg==",
+                      "altText": "Visual Studio 2017 app icon",
+                      "width": "30px",
+                      "spacing": "none"
+                    }
+                  ],
+                  "verticalContentAlignment": "center"
+                },
+                {
+                  "type": "Column",
+                  "width": "6px",
+                  "items": []
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "size": "medium",
+                      "text": "Visual Studio 2017",
+                      "wrap": true
+                    }
+                  ],
+                  "verticalContentAlignment": "center",
+                  "height": "stretch"
+                }
+              ],
+              "verticalContentAlignment": "center",
+              "selectAction": {
+                "type": "Action.Submit",
+                "data": {
+                  "position_ref": 2
+                },
+                "title": "Open Visual Studio 2017"
+              },
+              "minHeight": "40px",
+              "spacing": "small",
+              "height": "stretch"
+            }
+          ],
+          "verticalContentAlignment": "center",
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "items": [
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "width": "30px",
+                  "items": [
+                    {
+                      "type": "Image",
+                      "url": "data:image/png;base64,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",
+                      "altText": "Visual Studio 2019 app icon",
+                      "width": "30px",
+                      "spacing": "none"
+                    }
+                  ],
+                  "verticalContentAlignment": "center"
+                },
+                {
+                  "type": "Column",
+                  "width": "6px",
+                  "items": []
+                },
+                {
+                  "type": "Column",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "size": "medium",
+                      "text": "Visual Studio 2019",
+                      "wrap": true
+                    }
+                  ],
+                  "verticalContentAlignment": "center",
+                  "height": "stretch"
+                }
+              ],
+              "verticalContentAlignment": "center",
+              "selectAction": {
+                "type": "Action.Submit",
+                "data": {
+                  "position_ref": 3
+                },
+                "title": "Open Visual Studio 2019"
+              },
+              "minHeight": "40px",
+              "spacing": "small",
+              "height": "stretch"
+            }
+          ],
+          "verticalContentAlignment": "center",
+          "separator": true
+        }
+      ]
+    }
+  ]
+}

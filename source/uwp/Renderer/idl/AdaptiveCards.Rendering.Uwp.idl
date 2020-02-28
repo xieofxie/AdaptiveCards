@@ -2066,6 +2066,7 @@ AdaptiveNamespaceStart
         Boolean IsInShowCard;
         Boolean AllowAboveTitleIconPlacement;
         Boolean AncestorHasFallback;
+        Boolean IsInSelectAction;
     };
 
     [

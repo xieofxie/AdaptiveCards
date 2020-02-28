@@ -24,6 +24,8 @@ namespace AdaptiveNamespace
     class ElementTagContent
         : public Microsoft::WRL::RuntimeClass<Microsoft::WRL::RuntimeClassFlags<Microsoft::WRL::RuntimeClassType::WinRtClassicComMix>, IElementTagContent>
     {
+        InspectableClass(L"ElementTagContent", BaseTrust);
+
     public:
         ElementTagContent() : m_expectedVisibility (true), m_isStretchable(false) {}
 

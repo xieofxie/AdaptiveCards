@@ -13,7 +13,7 @@ namespace AdaptiveNamespace
 
     public:
         AdaptiveRenderArgs() :
-            m_isInShowCard(false), m_allowAboveTitleIconPlacement(false), m_ancestorHasFallback(false)
+            m_isInShowCard(false), m_allowAboveTitleIconPlacement(false), m_ancestorHasFallback(false), m_isInSelectAction(false)
         {
         }
 
@@ -32,6 +32,9 @@ namespace AdaptiveNamespace
         IFACEMETHODIMP get_IsInShowCard(_Out_ boolean* isInShowCard) override;
         IFACEMETHODIMP put_IsInShowCard(boolean isInShowCard) override;
 
+        IFACEMETHODIMP get_IsInSelectAction(_Out_ boolean* isInSelectAction) override;
+        IFACEMETHODIMP put_IsInSelectAction(boolean isInSelectAction) override;
+
         IFACEMETHODIMP get_AllowAboveTitleIconPlacement(_Out_ boolean* value) override;
         IFACEMETHODIMP put_AllowAboveTitleIconPlacement(boolean value) override;
 
@@ -42,6 +45,7 @@ namespace AdaptiveNamespace
         ABI::AdaptiveNamespace::ContainerStyle m_containerStyle;
         Microsoft::WRL::ComPtr<IInspectable> m_parentElement;
         boolean m_isInShowCard;
+        boolean m_isInSelectAction;
         boolean m_allowAboveTitleIconPlacement;
         boolean m_ancestorHasFallback;
     };

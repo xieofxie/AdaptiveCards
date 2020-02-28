@@ -1,0 +1,76 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Timer",
+      "size": "Small",
+      "isSubtle": true
+    },
+    {
+      "type": "Container",
+      "selectAction": {
+        "type": "Action.Submit"
+      },
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "00:20:00",
+          "size": "Large"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "https://adaptivecards.io/content/cats/1.png",
+                  "height": "20px"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Alarms and clock",
+                  "size": "Small"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Edit Timer",
+                  "horizontalAlignment": "Right",
+                  "size": "Small"
+
+                }
+              ]
+            }
+          ],
+          "separator": true,
+          "selectAction": {
+            "type": "Action.Submit"
+          }
+        }
+      ],
+      "separator": true
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}

@@ -1,0 +1,173 @@
+{
+	"type": "AdaptiveCard",
+	"version": "1.2",
+	"speak": "People",
+	"body": [
+		{
+			"type": "ColumnSet",
+			"id": "Rebecca Muraira",
+			"columns": [
+				{
+					"type": "Column",
+					"width": "48px",
+					"items": [
+						{
+							"type": "Image",
+							"size": "medium",
+							"style": "person",
+							"url": "https://adaptivecards.io/content/cats/1.png",
+							"horizontalAlignment": "center",
+							"altText": "RM"
+						}
+					],
+					"verticalContentAlignment": "center"
+				},
+				{
+					"type": "Column",
+					"width": "stretch",
+					"items": [
+						{
+							"type": "TextBlock",
+							"size": "medium",
+							"weight": "bolder",
+							"text": "Rebecca Muraira",
+							"wrap": true
+						},
+						{
+							"type": "TextBlock",
+							"isSubtle": true,
+							"text": "SENIOR SOFTWARE ENGINEER",
+							"wrap": true,
+							"spacing": "none"
+						},
+						{
+							"type": "TextBlock",
+							"isSubtle": true,
+							"text": "Dev Platform DEV R&D",
+							"wrap": true,
+							"spacing": "none"
+						}
+					],
+					"spacing": "medium"
+				}
+			],
+			"selectAction": {
+				"type": "Action.OpenUrl",
+				"url": "https://www.office.com/search?auth=2&q=rebecch@microsoft.com",
+				"title": "Rebecca Muraira on Office.com"
+			},
+			"spacing": "extraLarge"
+		},
+		{
+			"type": "ColumnSet",
+			"columns": [
+				{
+					"type": "Column",
+					"width": "48px",
+					"items": [
+						{
+							"type": "Image",
+							"url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAVUExURUdwTAB40wB4zwB41AB40gB41AB41GZT1DAAAAAGdFJOUwCAIJ+g3zFWlFwAAABvSURBVCjPzdLRDYAgDEXRygTqBLCEIziCCxDdfwRfgbaQ1MRP7ucJKU2AaL42J3qcPjDHcV44+OSoMOA1KOwG7mensJyAazBliwsjqRajiqLVBKs2UyzazJBVrjOEygodUpBle9Qmxd+v6X6G+XoBWIVIbN/adIYAAAAASUVORK5CYII=",
+							"horizontalAlignment": "center",
+							"altText": "Mail icon",
+							"width": "24px"
+						}
+					],
+					"verticalContentAlignment": "center"
+				},
+				{
+					"type": "Column",
+					"width": "stretch",
+					"items": [
+						{
+							"type": "RichTextBlock",
+							"inlines": [
+								{
+									"type": "TextRun",
+									"size": "medium",
+									"weight": "bolder",
+									"text": "rebecch@microsoft.com",
+									"selectAction": {
+										"type": "Action.OpenUrl",
+										"url": "mailto:rebecch@microsoft.com",
+										"title": "rebecch@microsoft.com"
+									}
+								}
+							]
+						}
+					],
+					"verticalContentAlignment": "center"
+				}
+			],
+			"spacing": "medium"
+		},
+		{
+			"type": "Container",
+			"items": [],
+			"spacing": "padding"
+		},
+		{
+			"type": "Container",
+			"items": [],
+			"spacing": "none",
+			"separator": true
+		},
+		{
+			"type": "ColumnSet",
+			"columns": [
+				{
+					"type": "Column",
+					"width": "auto",
+					"items": [
+						{
+							"type": "Image",
+							"url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAAFiUAABYlAUlSJPAAAABLUExURUdwTAF52AB61AB41wB41wB41wJ52ABwzwF41wJ41wN41AJ41QF41wJ32AJ52AB40wJ41wJ32AJ31gB11AJ41wF32AJ41gJ41wJ41xu39Y4AAAAYdFJOUwDPMGAgQI8Q399ggL/vz0Cfz5AwgO+gf6u11AYAAAC4SURBVDjL1ZPJEoMgEERxwZlxz97//6WxVBZxSA455Z1AurDnVWHMCXr1QNGaHPWIFakzAQFbMhWjIPW8Ba8HNaNTAxdU28KiVwOA6+pXaYDS6JEe1pUp1EAHWa8gcWVSTQyZDE3LtDlRwyaKM6KowU6j+qcRj/tSs3wiVhn8N+By/8bRHd6/AP7X5eAmjv1jjie+nv3jFgIW8sW/3/2z/4DuP5DxHwro/gOz7j9+Cap/xfgn2T/wBuheD+0gocFiAAAAAElFTkSuQmCC",
+							"altText": "People icon",
+							"width": "16px",
+							"spacing": "none"
+						}
+					],
+					"verticalContentAlignment": "center",
+					"spacing": "none"
+				},
+				{
+					"type": "Column",
+					"width": "stretch",
+					"items": [
+						{
+							"type": "TextBlock",
+							"size": "small",
+							"text": "People",
+							"spacing": "none"
+						}
+					],
+					"verticalContentAlignment": "center"
+				},
+				{
+					"type": "Column",
+					"width": "auto",
+					"items": [
+						{
+							"type": "RichTextBlock",
+							"horizontalAlignment": "right",
+							"inlines": [
+								{
+									"type": "TextRun",
+									"size": "small",
+									"text": "Show profile",
+									"selectAction": {
+										"type": "Action.OpenUrl",
+										"url": "https://www.office.com/search?auth=2&q=rebecch@microsoft.com",
+										"title": "Open profile of Rebecca Muraira"
+									}
+								}
+							]
+						}
+					],
+					"verticalContentAlignment": "center"
+				}
+			],
+			"spacing": "medium"
+		}
+	]
+}

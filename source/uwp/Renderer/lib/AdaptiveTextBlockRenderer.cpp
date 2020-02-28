@@ -38,6 +38,18 @@ namespace AdaptiveNamespace
         ComPtr<ITextBlock> xamlTextBlock =
             XamlHelpers::CreateXamlClass<ITextBlock>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_TextBlock));
 
+        boolean isInSelectAction;
+        RETURN_IF_FAILED(renderArgs->get_IsInSelectAction(&isInSelectAction));
+
+        if (isInSelectAction)
+        {
+            // If we're in a select action, opt out of automatic high contrast adjustment. We'll want to adjust for high
+            // contrast as if we were a button, rather than as if we are text, which the automatic handling would do.
+            ComPtr<IUIElement5> xamlTextBlockAsUiElement5;
+            RETURN_IF_FAILED(xamlTextBlock.As(&xamlTextBlockAsUiElement5));
+            RETURN_IF_FAILED(xamlTextBlockAsUiElement5->put_HighContrastAdjustment(ElementHighContrastAdjustment_None));
+        }
+
         ComPtr<IAdaptiveTextElement> adaptiveTextElement;
         RETURN_IF_FAILED(adaptiveTextBlock.As(&adaptiveTextElement));
 

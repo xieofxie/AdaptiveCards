@@ -59,6 +59,10 @@ namespace AdaptiveNamespace
         ComPtr<IAdaptiveRenderArgs> newRenderArgs;
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRenderArgs>(&newRenderArgs, containerStyle, parentElement.Get(), renderArgs));
 
+        ComPtr<IAdaptiveActionElement> selectAction;
+        RETURN_IF_FAILED(columnSetAsContainerBase->get_SelectAction(&selectAction));
+        RETURN_IF_FAILED(newRenderArgs->put_IsInSelectAction(selectAction != nullptr));
+
         ComPtr<IGrid> xamlGrid =
             XamlHelpers::CreateXamlClass<IGrid>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_Grid));
         ComPtr<IGridStatics> gridStatics;
@@ -183,9 +187,6 @@ namespace AdaptiveNamespace
                                                                      L"Adaptive.ColumnSet",
                                                                      columnSetAsFrameworkElement.Get()));
         RETURN_IF_FAILED(columnSetAsFrameworkElement->put_VerticalAlignment(VerticalAlignment_Stretch));
-
-        ComPtr<IAdaptiveActionElement> selectAction;
-        RETURN_IF_FAILED(columnSetAsContainerBase->get_SelectAction(&selectAction));
 
         ComPtr<IPanel> gridContainerAsPanel;
         RETURN_IF_FAILED(gridContainer.As(&gridContainerAsPanel));

@@ -7,8 +7,7 @@ const PCWSTR c_defaultResourceDictionary = L"\
     xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\" \
     xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"> \
 \
-    <SolidColorBrush x:Key=\"MyButtonColorBrush\" Color=\"{ThemeResource SystemColorButtonTextColor}\"></SolidColorBrush>\
-    <SolidColorBrush x:Key=\"MyPurpleBrush\" Color=\"Purple\"></SolidColorBrush>\
+    <SolidColorBrush x:Key=\"Foo\" Color=\"Blue\"/> \
     <Style x:Key=\"Adaptive.TouchTarget\" TargetType=\"Button\"> \
         <Setter Property=\"Background\" Value=\"{ThemeResource ListViewItemBackground}\" /> \
         <Setter Property=\"BorderThickness\" Value=\"0\" /> \
@@ -18,10 +17,11 @@ const PCWSTR c_defaultResourceDictionary = L"\
         <Setter Property=\"VerticalAlignment\" Value=\"Center\" /> \
         <Setter Property=\"UseSystemFocusVisuals\" Value=\"True\" /> \
         <Setter Property=\"FocusVisualMargin\" Value=\"0\" /> \
-        <Setter Property=\"FocusVisualPrimaryBrush\" Value=\"{ThemeResource ListViewItemFocusVisualPrimaryBrush}\" /> \
+        <Setter Property=\"FocusVisualPrimaryBrush\" Value=\"{ThemeResource SystemColorButtonTextColor}\" /> \
         <Setter Property=\"FocusVisualPrimaryThickness\" Value=\"2\" /> \
         <Setter Property=\"FocusVisualSecondaryBrush\" Value=\"{ThemeResource ListViewItemFocusVisualSecondaryBrush}\" /> \
         <Setter Property=\"FocusVisualSecondaryThickness\" Value=\"1\" /> \
+        <Setter Property=\"Foreground\" Value=\"{ThemeResource Foo}\" /> \
         <Setter Property=\"Template\"> \
             <Setter.Value> \
                 <ControlTemplate TargetType=\"Button\"> \

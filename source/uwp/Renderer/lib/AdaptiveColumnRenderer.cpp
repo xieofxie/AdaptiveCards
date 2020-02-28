@@ -54,6 +54,10 @@ namespace AdaptiveNamespace
         ComPtr<IAdaptiveRenderArgs> newRenderArgs;
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRenderArgs>(&newRenderArgs, containerStyle, parentElement.Get(), renderArgs));
 
+        ComPtr<IAdaptiveActionElement> selectAction;
+        RETURN_IF_FAILED(columnAsContainerBase->get_SelectAction(&selectAction));
+        RETURN_IF_FAILED(newRenderArgs->put_IsInSelectAction(selectAction != nullptr));
+
         ComPtr<IPanel> columnAsPanel;
         THROW_IF_FAILED(columnPanel.As(&columnAsPanel));
 
@@ -82,9 +86,6 @@ namespace AdaptiveNamespace
         {
             RETURN_IF_FAILED(columnPanelAsFrameworkElement->put_MinHeight(columnMinHeight));
         }
-
-        ComPtr<IAdaptiveActionElement> selectAction;
-        RETURN_IF_FAILED(columnAsContainerBase->get_SelectAction(&selectAction));
 
         // Define columnAsUIElement based on the existence of a backgroundImage
         ComPtr<IUIElement> columnAsUIElement;

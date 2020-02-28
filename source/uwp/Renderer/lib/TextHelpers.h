@@ -141,11 +141,30 @@ HRESULT StyleTextElement(_In_ ABI::AdaptiveNamespace::IAdaptiveTextElement* adap
         ABI::AdaptiveNamespace::ContainerStyle containerStyle;
         RETURN_IF_FAILED(renderArgs->get_ContainerStyle(&containerStyle));
 
-        ABI::Windows::UI::Color fontColor;
-        RETURN_IF_FAILED(GetColorFromAdaptiveColor(hostConfig.Get(), adaptiveTextColor, containerStyle, isSubtle, false, &fontColor));
+        // ABI::Windows::UI::Xaml::IApplication
 
-        Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::Media::IBrush> fontColorBrush =
-            AdaptiveNamespace::XamlHelpers::GetSolidColorBrush(fontColor);
+        boolean isInSelectAction;
+        RETURN_IF_FAILED(renderArgs->get_IsInSelectAction(&isInSelectAction));
+
+        ABI::Windows::UI::Color fontColor;
+        Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::Media::IBrush> fontColorBrush;
+        if (isInSelectAction)
+        {
+            ComPtr<IResourceDictionary> resourceDictionary;
+            RETURN_IF_FAILED(renderContext->get_OverrideStyles(&resourceDictionary));
+
+            ComPtr<ABI::Windows::UI::Xaml::Media::ISolidColorBrush> highContrastBrush;
+            if (SUCCEEDED(XamlHelpers::TryGetResourceFromResourceDictionaries<ABI::Windows::UI::Xaml::Media::ISolidColorBrush>(
+                    resourceDictionary.Get(), L"MyButtonColorBrush", &highContrastBrush)))
+            {
+                RETURN_IF_FAILED(highContrastBrush.As(&fontColorBrush));
+            }
+        }
+        else
+        {
+            RETURN_IF_FAILED(GetColorFromAdaptiveColor(hostConfig.Get(), adaptiveTextColor, containerStyle, isSubtle, false, &fontColor));
+            fontColorBrush = AdaptiveNamespace::XamlHelpers::GetSolidColorBrush(fontColor);
+        }
         RETURN_IF_FAILED(xamlTextElement->put_Foreground(fontColorBrush.Get()));
     }
 

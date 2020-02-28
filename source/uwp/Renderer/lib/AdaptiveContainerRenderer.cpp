@@ -68,6 +68,10 @@ namespace AdaptiveNamespace
         ComPtr<IAdaptiveRenderArgs> newRenderArgs;
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRenderArgs>(&newRenderArgs, containerStyle, parentElement.Get(), renderArgs));
 
+        ComPtr<IAdaptiveActionElement> selectAction;
+        RETURN_IF_FAILED(containerAsContainerBase->get_SelectAction(&selectAction));
+        RETURN_IF_FAILED(newRenderArgs->put_IsInSelectAction(selectAction != nullptr));
+
         ComPtr<IPanel> containerPanelAsPanel;
         RETURN_IF_FAILED(containerPanel.As(&containerPanelAsPanel));
         ComPtr<IVector<IAdaptiveCardElement*>> childItems;
@@ -115,9 +119,6 @@ namespace AdaptiveNamespace
         RETURN_IF_FAILED(XamlHelpers::SetStyleFromResourceDictionary(renderContext,
                                                                      L"Adaptive.Container",
                                                                      containerPanelAsFrameWorkElement.Get()));
-
-        ComPtr<IAdaptiveActionElement> selectAction;
-        RETURN_IF_FAILED(containerAsContainerBase->get_SelectAction(&selectAction));
 
         ComPtr<IUIElement> containerBorderAsUIElement;
         RETURN_IF_FAILED(containerBorder.As(&containerBorderAsUIElement));
