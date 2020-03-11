@@ -395,5 +395,8 @@
     <ClInclude Include="..\..\ObjectModel\RichTextElementProperties.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\ObjectModel\InternalId.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
