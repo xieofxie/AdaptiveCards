@@ -5,14 +5,16 @@
 #include "pch.h"
 #include "json/json.h"
 #include "InternalId.h"
-#include "FeatureRegistration.h"
 #include "ParseContext.h"
 #include "ParseUtil.h"
 #include "SemanticVersion.h"
 #include "RemoteResourceInformation.h"
+#include "FeatureRegistration.h"
 
 namespace AdaptiveSharedNamespace
 {
+    class ParseContext;
+    class FeatureRegistration;
     class BaseElement
     {
     public:
