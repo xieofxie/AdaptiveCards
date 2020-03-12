@@ -4,7 +4,6 @@
 
 #include "pch.h"
 
-#include "BaseElement.h"
 #include "InternalId.h"
 #include "ElementParserRegistration.h"
 #include "ActionParserRegistration.h"

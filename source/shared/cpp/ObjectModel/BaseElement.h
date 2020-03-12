@@ -13,8 +13,11 @@
 
 namespace AdaptiveSharedNamespace
 {
+#ifdef _MSC_VER
     class ParseContext;
+#endif
     class FeatureRegistration;
+
     class BaseElement
     {
     public:
@@ -41,7 +44,7 @@ namespace AdaptiveSharedNamespace
 
         const InternalId GetInternalId() const { return m_internalId; }
 
-        template<typename T> void DeserializeBase(ParseContext& context, const Json::Value& json);
+        template<typename T> void DeserializeBase(AdaptiveSharedNamespace::ParseContext& context, const Json::Value& json);
 
         virtual std::string Serialize() const;
         virtual Json::Value SerializeToJsonValue() const;
