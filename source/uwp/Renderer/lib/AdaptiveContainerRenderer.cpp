@@ -68,6 +68,7 @@ namespace AdaptiveNamespace
         ComPtr<IAdaptiveRenderArgs> newRenderArgs;
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveRenderArgs>(&newRenderArgs, containerStyle, parentElement.Get(), renderArgs));
 
+        //BECKYTODO - || with the parent value here and elsewhere
         ComPtr<IAdaptiveActionElement> selectAction;
         RETURN_IF_FAILED(containerAsContainerBase->get_SelectAction(&selectAction));
         RETURN_IF_FAILED(newRenderArgs->put_IsInSelectAction(selectAction != nullptr));

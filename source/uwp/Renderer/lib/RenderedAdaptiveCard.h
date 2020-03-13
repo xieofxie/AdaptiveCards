@@ -20,8 +20,9 @@ namespace AdaptiveNamespace
     public:
         RenderedAdaptiveCard();
 
-        HRESULT RuntimeClassInitialize();
+        HRESULT RuntimeClassInitialize(_In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary);
         HRESULT RuntimeClassInitialize(
+            _In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary,
             _In_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveError*>* errors,
             _In_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveWarning*>* warnings);
 
@@ -55,10 +56,13 @@ namespace AdaptiveNamespace
                                   _In_ ABI::AdaptiveNamespace::IAdaptiveShowCardAction* showCardAction,
                                   _In_ ABI::Windows::UI::Xaml::IUIElement* showCardFrameworkElement);
 
+        HRESULT AddTextBlock(_In_ ABI::Windows::UI::Xaml::IUIElement* textBlock);
+
         HRESULT AddInputValue(_In_ ABI::AdaptiveNamespace::IAdaptiveInputValue* inputValue);
         void SetFrameworkElement(_In_ ABI::Windows::UI::Xaml::IFrameworkElement* value);
         void SetOriginatingCard(_In_ ABI::AdaptiveNamespace::IAdaptiveCard* value);
         void SetOriginatingHostConfig(_In_ ABI::AdaptiveNamespace::IAdaptiveHostConfig* value);
+        void SetResourceDictionary(_In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary);
         HRESULT SendActionEvent(_In_ ABI::AdaptiveNamespace::IAdaptiveActionElement* eventArgs);
         HRESULT SendMediaClickedEvent(_In_ ABI::AdaptiveNamespace::IAdaptiveMedia* eventArgs);
 
@@ -73,6 +77,7 @@ namespace AdaptiveNamespace
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveHostConfig> m_originatingHostConfig;
         Microsoft::WRL::ComPtr<AdaptiveNamespace::AdaptiveInputs> m_inputs;
         Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IFrameworkElement> m_frameworkElement;
+        Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> m_resourceDictionary;
         Microsoft::WRL::ComPtr<ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveError*>> m_errors;
         Microsoft::WRL::ComPtr<ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveWarning*>> m_warnings;
         std::shared_ptr<ActionEventSource> m_actionEvents;
@@ -81,6 +86,9 @@ namespace AdaptiveNamespace
         // Map of rendered show cards. The key is the id of the show card action, and the value is a pair made up of the
         // id of the action set (InvalidId for actions in the bottom action bar) and the UIElement for the card.
         std::unordered_map<AdaptiveSharedNamespace::InternalId, std::pair<AdaptiveSharedNamespace::InternalId, Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IUIElement>>, InternalIdKeyHash> m_showCards;
+
+        std::list<Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IUIElement>> m_textBlocks;
+        Microsoft::WRL::ComPtr<ABI::Windows::UI::ViewManagement::IAccessibilitySettings> m_accessibilitySettings;
     };
 
     ActivatableClass(RenderedAdaptiveCard);

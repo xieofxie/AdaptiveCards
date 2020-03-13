@@ -134,6 +134,13 @@ namespace AdaptiveNamespace
         return renderResult->AddInlineShowCard(actionSet, showCardAction, showCardFrameworkElement);
     }
 
+    HRESULT AdaptiveRenderContext::AddTextBlock(ABI::Windows::UI::Xaml::IUIElement* textBlock)
+    {
+        ComPtr<RenderedAdaptiveCard> renderResult;
+        RETURN_IF_FAILED(GetRenderResult(renderResult.GetAddressOf()));
+        return renderResult->AddTextBlock(textBlock);
+    }
+
     HRESULT AdaptiveRenderContext::AddInputValue(_In_ IAdaptiveInputValue* inputValue)
     {
         ComPtr<RenderedAdaptiveCard> renderResult;

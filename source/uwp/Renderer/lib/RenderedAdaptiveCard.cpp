@@ -24,20 +24,23 @@ using namespace ABI::Windows::Foundation::Collections;
 using namespace ABI::Windows::UI;
 using namespace ABI::Windows::UI::Xaml;
 using namespace ABI::Windows::UI::Xaml::Controls;
+using namespace ABI::Windows::UI::ViewManagement;
 
 namespace AdaptiveNamespace
 {
     RenderedAdaptiveCard::RenderedAdaptiveCard() {}
 
-    HRESULT RenderedAdaptiveCard::RuntimeClassInitialize()
+    HRESULT RenderedAdaptiveCard::RuntimeClassInitialize(_In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary)
     {
         RETURN_IF_FAILED(
-            RenderedAdaptiveCard::RuntimeClassInitialize(Make<Vector<ABI::AdaptiveNamespace::AdaptiveError*>>().Get(),
+            RenderedAdaptiveCard::RuntimeClassInitialize(resourceDictionary,
+                                                         Make<Vector<ABI::AdaptiveNamespace::AdaptiveError*>>().Get(),
                                                          Make<Vector<ABI::AdaptiveNamespace::AdaptiveWarning*>>().Get()));
         return S_OK;
     }
 
     HRESULT RenderedAdaptiveCard::RuntimeClassInitialize(
+        _In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary,
         _In_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveError*>* errors,
         _In_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveWarning*>* warnings)
     {
@@ -46,6 +49,53 @@ namespace AdaptiveNamespace
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveNamespace::AdaptiveInputs>(&m_inputs));
         m_actionEvents = std::make_shared<ActionEventSource>();
         m_mediaClickedEvents = std::make_shared<MediaEventSource>();
+
+        // AccessibilitySettings = new AccessibilitySettings();
+        // AccessibilitySettings.HighContrastChanged += AccessibilitySettings_HighContrastChanged;
+
+        // AccessibilityTextBlocks = new List<TextBlock>();
+
+        m_accessibilitySettings = XamlHelpers::CreateXamlClass<ABI::Windows::UI::ViewManagement::IAccessibilitySettings>(
+            HStringReference(RuntimeClass_Windows_UI_ViewManagement_AccessibilitySettings));
+
+        // m_accessibilitySettings->add_HighContrastChanged();
+
+        // BECKYTODO - make sure this lambda capture doesn't cause a circular reference
+        EventRegistrationToken eventToken;
+        m_accessibilitySettings->add_HighContrastChanged(
+            Callback<ITypedEventHandler<AccessibilitySettings*, IInspectable*>>([this](_In_ IAccessibilitySettings* /*pAccessibility*/, _In_ IInspectable *
+                                                                                       /*e*/) -> HRESULT {
+                // for (auto& textBlock : m_textBlocks)
+                {
+                    boolean isInHighContrast;
+                    m_accessibilitySettings->get_HighContrast(&isInHighContrast);
+
+                    if (isInHighContrast)
+                    {
+                        // ComPtr<IResourceDictionary> resourceDictionary;
+                        // RETURN_IF_FAILED(renderContext->get_OverrideStyles(&resourceDictionary));
+
+                        // ComPtr<ABI::Windows::UI::Xaml::Media::ISolidColorBrush> highContrastBrush;
+                        // if (SUCCEEDED(XamlHelpers::TryGetResourceFromResourceDictionaries<ABI::Windows::UI::Xaml::Media::ISolidColorBrush>(
+                        //        resourceDictionary.Get(), L"MyButtonColorBrush", &highContrastBrush)))
+                        //{
+                        //    RETURN_IF_FAILED(highContrastBrush.As(&fontColorBrush));
+                        //}
+                    }
+                    else
+                    {
+                        // Reset to colors defined in the card...
+                    }
+                }
+                //    else
+                //    {
+                //        textBlock.Foreground = new SolidColorBrush(Windows.UI.Colors.Purple);
+                //    }
+                //}
+                return S_OK;
+            }).Get(),
+            &eventToken);
+
         return S_OK;
     }
 
@@ -318,6 +368,11 @@ namespace AdaptiveNamespace
         m_originatingHostConfig = value;
     }
 
+    void RenderedAdaptiveCard::SetResourceDictionary(IResourceDictionary* resourceDictionary)
+    {
+        m_resourceDictionary = resourceDictionary;
+    }
+
     HRESULT RenderedAdaptiveCard::AddInlineShowCard(_In_ IAdaptiveActionSet* actionSet,
                                                     _In_ IAdaptiveShowCardAction* showCardAction,
                                                     _In_ ABI::Windows::UI::Xaml::IUIElement* showCardFrameworkElement)
@@ -359,6 +414,14 @@ namespace AdaptiveNamespace
 
         m_showCards.emplace(std::make_pair(showCardActionId, std::make_pair(actionSetId, showCardFrameworkElement)));
 
+        return S_OK;
+    }
+    CATCH_RETURN;
+
+    HRESULT RenderedAdaptiveCard::AddTextBlock(ABI::Windows::UI::Xaml::IUIElement* textBlock)
+    try
+    {
+        m_textBlocks.push_back(textBlock);
         return S_OK;
     }
     CATCH_RETURN;

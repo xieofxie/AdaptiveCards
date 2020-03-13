@@ -126,7 +126,7 @@ namespace AdaptiveNamespace
     HRESULT AdaptiveCardRenderer::RenderAdaptiveCard(_In_ IAdaptiveCard* adaptiveCard, _COM_Outptr_ IRenderedAdaptiveCard** result)
     {
         ComPtr<::AdaptiveNamespace::RenderedAdaptiveCard> renderedCard;
-        RETURN_IF_FAILED(MakeAndInitialize<::AdaptiveNamespace::RenderedAdaptiveCard>(&renderedCard));
+        RETURN_IF_FAILED(MakeAndInitialize<::AdaptiveNamespace::RenderedAdaptiveCard>(m_mergedResourceDictionary.Get(), &renderedCard));
         renderedCard->SetOriginatingCard(adaptiveCard);
         renderedCard->SetOriginatingHostConfig(m_hostConfig.Get());
 

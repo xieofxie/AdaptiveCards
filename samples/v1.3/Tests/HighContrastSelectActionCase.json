@@ -1,0 +1,166 @@
+{
+	"type": "AdaptiveCard",
+	"version": "1.0",
+	"body": [
+		{
+			"type": "TextBlock",
+			"text": "Container _WITH_ a select action. Text should show be in color specified in the card in non-HighContrast, and the High Contrast _BUTTON_ color in HighContrast.",
+			"wrap": true,
+			"weight": "Bolder"
+		},
+		{
+			"type": "Container",
+			"items": [
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Accent color",
+					"color": "Accent"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Good color",
+					"color": "Good"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Warning color",
+					"color": "Warning"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Attention color",
+					"color": "Attention"
+				},
+				{
+					"type": "RichTextBlock",
+					"inlines": [
+						{
+							"type": "TextRun",
+							"text": "Rich Text Block: "
+						},
+						{
+							"type": "TextRun",
+							"text": "Accent, ",
+							"color": "Accent"
+						},
+						{
+							"type": "TextRun",
+							"text": "Good, ",
+							"color": "Good"
+						},
+						{
+							"type": "TextRun",
+							"text": "Warning, ",
+							"color": "Warning"
+						},
+						{
+							"type": "TextRun",
+							"text": "Attention.",
+							"color": "Attention"
+						}
+					]
+				},
+				{
+					"type": "TextBlock",
+					"text": "Fact set:"
+				},
+				{
+					"type": "FactSet",
+					"facts": [
+						{
+							"title": "Fact 1",
+							"value": "Value 1"
+						},
+						{
+							"title": "Fact 2",
+							"value": "Value 2"
+						}
+					]
+				}
+			],
+			"selectAction": {
+				"type": "Action.Submit",
+				"title": "ContainerSelect"
+			}
+		},
+		{
+			"type": "TextBlock",
+			"text": "Container _WITHOUT_ a select action. Text should show be in color specified in the card in non-HighContrast, and the High Contrast _TEXT_ color in HighContrast.",
+			"wrap": true,
+			"weight": "Bolder",
+			"separator": true
+		},
+		{
+			"type": "Container",
+			"items": [
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Accent color",
+					"color": "Accent"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Good color",
+					"color": "Good"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Warning color",
+					"color": "Warning"
+				},
+				{
+					"type": "TextBlock",
+					"text": "TextBlock with Attention color",
+					"color": "Attention"
+				},
+				{
+					"type": "RichTextBlock",
+					"inlines": [
+						{
+							"type": "TextRun",
+							"text": "Rich Text Block: "
+						},
+						{
+							"type": "TextRun",
+							"text": "Accent, ",
+							"color": "Accent"
+						},
+						{
+							"type": "TextRun",
+							"text": "Good, ",
+							"color": "Good"
+						},
+						{
+							"type": "TextRun",
+							"text": "Warning, ",
+							"color": "Warning"
+						},
+						{
+							"type": "TextRun",
+							"text": "Attention.",
+							"color": "Attention"
+						}
+					]
+				},
+				{
+					"type": "TextBlock",
+					"text": "Fact set:"
+				},
+				{
+					"type": "FactSet",
+					"facts": [
+						{
+							"title": "Fact 1",
+							"value": "Value 1"
+						},
+						{
+							"title": "Fact 2",
+							"value": "Value 2"
+						}
+					]
+				}
+			]
+		}
+	],
+	"$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+}

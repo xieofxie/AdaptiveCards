@@ -49,6 +49,8 @@ namespace AdaptiveNamespace
                                   _In_ ABI::AdaptiveNamespace::IAdaptiveShowCardAction* showCardAction,
                                   _In_ ABI::Windows::UI::Xaml::IUIElement* showCardUIElement);
 
+        HRESULT AddTextBlock(_In_ ABI::Windows::UI::Xaml::IUIElement* textBlock);
+
         HRESULT GetRenderResult(_COM_Outptr_ AdaptiveNamespace::RenderedAdaptiveCard** renderResult);
         Microsoft::WRL::ComPtr<ABI::Windows::UI::Xaml::IResourceDictionary> GetDefaultActionSentimentDictionary();
 

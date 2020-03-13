@@ -48,6 +48,14 @@ namespace AdaptiveNamespace
             ComPtr<IUIElement5> xamlTextBlockAsUiElement5;
             RETURN_IF_FAILED(xamlTextBlock.As(&xamlTextBlockAsUiElement5));
             RETURN_IF_FAILED(xamlTextBlockAsUiElement5->put_HighContrastAdjustment(ElementHighContrastAdjustment_None));
+
+            ComPtr<AdaptiveNamespace::AdaptiveRenderContext> contextImpl =
+                PeekInnards<AdaptiveNamespace::AdaptiveRenderContext>(renderContext);
+
+            ComPtr<IUIElement> xamlTextBlockAsUIElement;
+            RETURN_IF_FAILED(xamlTextBlock.As(&xamlTextBlockAsUIElement));
+
+            RETURN_IF_FAILED(contextImpl->AddTextBlock(xamlTextBlockAsUIElement.Get()));
         }
 
         ComPtr<IAdaptiveTextElement> adaptiveTextElement;
