@@ -275,13 +275,10 @@ namespace AdaptiveNamespace
 
         // Now create the inner stack panel to serve as the root host for all the
         // body elements and apply padding from host configuration
-        //ComPtr<WholeItemsPanel> bodyElementHost;
-        //RETURN_IF_FAILED(MakeAndInitialize<WholeItemsPanel>(&bodyElementHost));
-        //bodyElementHost->SetMainPanel(TRUE);
-        //bodyElementHost->SetAdaptiveHeight(TRUE);
-
-        ComPtr<IStackPanel> bodyElementHost =
-            XamlHelpers::CreateXamlClass<IStackPanel>(HStringReference(RuntimeClass_Windows_UI_Xaml_Controls_StackPanel));
+        ComPtr<WholeItemsPanel> bodyElementHost;
+        RETURN_IF_FAILED(MakeAndInitialize<WholeItemsPanel>(&bodyElementHost));
+        bodyElementHost->SetMainPanel(TRUE);
+        bodyElementHost->SetAdaptiveHeight(TRUE);
 
         ComPtr<IFrameworkElement> bodyElementHostAsElement;
         RETURN_IF_FAILED(bodyElementHost.As(&bodyElementHostAsElement));

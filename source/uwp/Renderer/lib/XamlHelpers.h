@@ -293,14 +293,14 @@ namespace AdaptiveNamespace::XamlHelpers
     bool SupportsInteractivity(_In_ ABI::AdaptiveNamespace::IAdaptiveHostConfig* hostConfig);
 
     template<typename T>
-    void SetVerticalContentAlignmentToChildren(_In_ T* /*container*/, _In_ ABI::AdaptiveNamespace::VerticalContentAlignment /*verticalContentAlignment*/)
+    void SetVerticalContentAlignmentToChildren(_In_ T* container, _In_ ABI::AdaptiveNamespace::VerticalContentAlignment verticalContentAlignment)
     {
-        //ComPtr<T> localContainer(container);
-        //ComPtr<IWholeItemsPanel> containerAsPanel;
-        //THROW_IF_FAILED(localContainer.As(&containerAsPanel));
+        ComPtr<T> localContainer(container);
+        ComPtr<IWholeItemsPanel> containerAsPanel;
+        THROW_IF_FAILED(localContainer.As(&containerAsPanel));
 
-        //ComPtr<WholeItemsPanel> panel = PeekInnards<WholeItemsPanel>(containerAsPanel);
-        //panel->SetVerticalContentAlignment(verticalContentAlignment);
+        ComPtr<WholeItemsPanel> panel = PeekInnards<WholeItemsPanel>(containerAsPanel);
+        panel->SetVerticalContentAlignment(verticalContentAlignment);
     }
 
     HRESULT AddHandledTappedEvent(_In_ ABI::Windows::UI::Xaml::IUIElement* uiElement);
