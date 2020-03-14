@@ -30,6 +30,7 @@ namespace AdaptiveNamespace
 {
     RenderedAdaptiveCard::RenderedAdaptiveCard() {}
 
+    // BECKYTODO: Build error caused by adding this parameter here.
     HRESULT RenderedAdaptiveCard::RuntimeClassInitialize(_In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary)
     {
         RETURN_IF_FAILED(
@@ -39,6 +40,7 @@ namespace AdaptiveNamespace
         return S_OK;
     }
 
+  
     HRESULT RenderedAdaptiveCard::RuntimeClassInitialize(
         _In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary,
         _In_ ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::AdaptiveError*>* errors,
