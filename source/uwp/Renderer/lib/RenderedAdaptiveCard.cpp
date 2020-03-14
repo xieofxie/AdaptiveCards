@@ -50,15 +50,8 @@ namespace AdaptiveNamespace
         m_actionEvents = std::make_shared<ActionEventSource>();
         m_mediaClickedEvents = std::make_shared<MediaEventSource>();
 
-        // AccessibilitySettings = new AccessibilitySettings();
-        // AccessibilitySettings.HighContrastChanged += AccessibilitySettings_HighContrastChanged;
-
-        // AccessibilityTextBlocks = new List<TextBlock>();
-
         m_accessibilitySettings = XamlHelpers::CreateXamlClass<ABI::Windows::UI::ViewManagement::IAccessibilitySettings>(
             HStringReference(RuntimeClass_Windows_UI_ViewManagement_AccessibilitySettings));
-
-        // m_accessibilitySettings->add_HighContrastChanged();
 
         // BECKYTODO - make sure this lambda capture doesn't cause a circular reference
         EventRegistrationToken eventToken;
@@ -72,6 +65,9 @@ namespace AdaptiveNamespace
 
                     if (isInHighContrast)
                     {
+                        // Copied from functional version in TextHelpers.h. Using this brush will cause the text be
+                        // displayed in the color selected in the high contrast theme for button text
+
                         // ComPtr<IResourceDictionary> resourceDictionary;
                         // RETURN_IF_FAILED(renderContext->get_OverrideStyles(&resourceDictionary));
 
@@ -84,7 +80,8 @@ namespace AdaptiveNamespace
                     }
                     else
                     {
-                        // Reset to colors defined in the card...
+                        // If high contrast is turned off we need to return the text colors to those defined in the card.
+                        // Make sure the card samples\v1.3\Tests\HighContrastSelectActionCase.json works after toggling to High Contrast mode and back again
                     }
                 }
                 //    else
